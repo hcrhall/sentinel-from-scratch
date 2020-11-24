@@ -1,1 +1,4 @@
 .sentinel
+.DS_Store
+.terraform
+tfplan.plan
