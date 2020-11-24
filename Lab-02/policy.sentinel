@@ -1,0 +1,9 @@
+/*
+Excercise 02 - Rules
+*/
+
+pass = rule { true }
+
+fail = rule when pass { true }
+
+main = rule { fail }

@@ -1,0 +1,32 @@
+/*
+Excercise 08 - Functions & Modules
+*/
+
+import "library"
+
+status = [
+	"PUBLISH",
+	"PENDING",
+]
+
+authors = [
+	"W. Frank Ableson",
+	"Robi Sen",
+]
+
+books = filter library.search.all() as _, book {
+	book.status in status and
+		all book.authors as author {
+			author in authors
+		}
+}
+
+eval_books = rule {
+	all books as _, book {
+		book.pageCount <= 1500
+	}
+}
+
+main = rule {
+	eval_books
+}

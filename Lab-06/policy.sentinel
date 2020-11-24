@@ -1,0 +1,53 @@
+/*
+Excercise 06 - Collections
+*/
+
+books = [
+	{
+		"title": "Unlocking Android",
+		"pageCount": 416,
+		"status": "PUBLISH",
+		"authors": [
+			"W. Frank Ableson",
+			"Robi Sen",
+		],
+	},
+	{
+		"title": "Android in Action, Second Edition",
+		"pageCount": 592,
+		"status": "PUBLISH",
+		"authors": [
+			"W. Frank Ableson",
+			"Robi Sen",
+		],
+	},
+]
+
+status = [
+	"PUBLISH",
+	"PENDING",
+]
+
+// Compare pageCount value of "Unlocking Android" and determine if it is less than 1500 pages
+
+eval_bookPageCount = rule {
+	books[0].pageCount <= 1500
+}
+
+// Compare status value of "Android in Action, Second Edition" and determine if the value is in the status LIST
+
+eval_bookStatus = rule when eval_bookPageCount {
+	books[1].status in status
+}
+
+// This meant to fail as we are attempting to access an element in the list that does not exist.
+// Sentinel will return a value of undefined. Change the list index to 1 and run sentinel apply
+
+eval_bookAuthors = rule {
+	books[2].authors contains "Robi Sen"
+}
+
+main = rule {
+	eval_bookStatus and
+	eval_bookAuthors
+}

@@ -1,0 +1,52 @@
+import "http"
+import "json"
+import "strings"
+
+mocky_url = "https://run.mocky.io/v3/4be444b9-003e-4032-9c3f-e6aab4242ddc"
+
+get = func(u) {
+	req = http.request(u)
+	resp = http.get(req)
+	return json.unmarshal(resp.body)
+}
+
+search = {
+	"all": func() {
+		return get(mocky_url)
+	},
+	"title": func(t) {
+    response = get(mocky_url)
+
+    results = filter response as _, result {
+      result.title contains t
+    }
+
+    // Pro Tip: In this example we use "else" statement to recover from "undefined" values
+    for results as result {
+      print("Title:", result["title"])
+      print("Description:", result["shortDescription"] else "")
+      print("Status:", result["status"])
+      print("Year Published:", strings.split(result["publishedDate"].date else "-", "-")[0], "\n")
+    }
+
+		return results
+	},
+	"author": func(name) {
+    response = get(mocky_url)
+
+    results = filter response as _, result {
+      all result.authors as author {
+        author is name
+      }
+    }
+
+    for results as result {
+      print("Title:", result["title"])
+      print("Description:", result["shortDescription"] else "")
+      print("Status:", result["status"])
+      print("Year Published:", strings.split(result["publishedDate"].date, "-")[0], "\n")
+    }
+
+		return results
+	},
+}

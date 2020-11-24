@@ -1,0 +1,48 @@
+/*
+Excercise 06 - Collections
+*/
+
+books = [
+	{
+		"title":     "Unlocking Android",
+		"pageCount": 416,
+		"status":    "PUBLISH",
+		"authors": [
+			"W. Frank Ableson",
+			"Robi Sen",
+		],
+	},
+	{
+		"title":     "Android in Action, Second Edition",
+		"pageCount": 592,
+		"status":    "PUBLISH",
+		"authors": [
+			"W. Frank Ableson",
+			"Robi Sen",
+		],
+	},
+]
+
+status = [
+	"PUBLISH",
+	"PENDING",
+]
+
+authors = [
+	"W. Frank Ableson",
+	"Robi Sen",
+]
+
+eval_book = rule {
+	all books as _, book {
+		book.pageCount <= 1500 and
+			book.status in status and
+			all book.authors as author {
+				author in authors
+			}
+	}
+}
+
+main = rule {
+	eval_book
+}

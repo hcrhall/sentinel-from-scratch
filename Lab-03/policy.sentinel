@@ -1,0 +1,9 @@
+/*
+Excercise 03 - Variables and Values
+*/
+
+maxPageCount = 1000
+
+main = rule {
+	print("Total pages:", maxPageCount)
+}

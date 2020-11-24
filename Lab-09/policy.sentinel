@@ -1,0 +1,12 @@
+/*
+Excercise 09 - Debugging
+*/
+
+import "library"
+
+titles = library.search.title("Android")
+author = library.search.author("Vikram Goyal")
+
+main = rule {
+	true
+}

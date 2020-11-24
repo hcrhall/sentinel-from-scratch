@@ -1,0 +1,26 @@
+import "http"
+import "json"
+import "decimal"
+
+url = "https://run.mocky.io/v3/f00e30b5-1a8e-48e5-9c29-de6a39a7fd3d"
+request = http.request(url)
+response = json.unmarshal(http.get(request).body)
+
+books = filter response.results as _, results {
+	results.format is "book"
+}
+
+reviewed = filter books as book {
+	book.number_of_reviews > 0
+}
+
+recommended = rule when length(reviewed) != 0 {
+	all reviewed as r {
+		r.number_of_reviews > 10 and
+			print("Number of book reviews:", decimal.new(r.number_of_reviews).int)
+	}
+}
+
+main = rule {
+	recommended
+}

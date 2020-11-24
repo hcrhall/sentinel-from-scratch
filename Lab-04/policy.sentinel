@@ -1,0 +1,12 @@
+/*
+Excercise 04 - Imports and Parameters
+*/
+
+import "types"
+
+param maxPageCount default 1000
+
+main = rule {
+	print("Total pages:", maxPageCount) and
+	print("pageCount is of type:", types.type_of(maxPageCount))
+}
