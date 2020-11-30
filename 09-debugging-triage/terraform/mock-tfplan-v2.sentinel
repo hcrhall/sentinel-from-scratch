@@ -1,0 +1,501 @@
+terraform_version = "0.13.5"
+
+planned_values = {
+	"outputs": {},
+	"resources": {
+		"module.mod1.null_resource.test_mod1": {
+			"address":        "module.mod1.null_resource.test_mod1",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "module.mod1",
+			"name":           "test_mod1",
+			"provider_name":  "registry.terraform.io/hashicorp/null",
+			"tainted":        false,
+			"type":           "null_resource",
+			"values": {
+				"triggers": null,
+			},
+		},
+		"module.mod2.module.submod1.null_resource.test_submod2": {
+			"address":        "module.mod2.module.submod1.null_resource.test_submod2",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "module.mod2.module.submod1",
+			"name":           "test_submod2",
+			"provider_name":  "registry.terraform.io/hashicorp/null",
+			"tainted":        false,
+			"type":           "null_resource",
+			"values":         {},
+		},
+		"module.mod2.module.submod2.null_resource.test_submod2": {
+			"address":        "module.mod2.module.submod2.null_resource.test_submod2",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "module.mod2.module.submod2",
+			"name":           "test_submod2",
+			"provider_name":  "registry.terraform.io/hashicorp/null",
+			"tainted":        false,
+			"type":           "null_resource",
+			"values":         {},
+		},
+		"module.mod3.null_resource.test_mod3": {
+			"address":        "module.mod3.null_resource.test_mod3",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "module.mod3",
+			"name":           "test_mod3",
+			"provider_name":  "registry.terraform.io/hashicorp/null",
+			"tainted":        false,
+			"type":           "null_resource",
+			"values": {
+				"triggers": null,
+			},
+		},
+		"module.mod4.null_resource.test_mod4": {
+			"address":        "module.mod4.null_resource.test_mod4",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "module.mod4",
+			"name":           "test_mod4",
+			"provider_name":  "registry.terraform.io/hashicorp/null",
+			"tainted":        false,
+			"type":           "null_resource",
+			"values": {
+				"triggers": null,
+			},
+		},
+	},
+}
+
+variables = {}
+
+resource_changes = {
+	"module.mod1.null_resource.test_mod1": {
+		"address": "module.mod1.null_resource.test_mod1",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"triggers": null,
+			},
+			"after_unknown": {
+				"id": true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "module.mod1",
+		"name":           "test_mod1",
+		"provider_name":  "registry.terraform.io/hashicorp/null",
+		"type":           "null_resource",
+	},
+	"module.mod2.module.submod1.null_resource.test_submod2": {
+		"address": "module.mod2.module.submod1.null_resource.test_submod2",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {},
+			"after_unknown": {
+				"id":       true,
+				"triggers": true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "module.mod2.module.submod1",
+		"name":           "test_submod2",
+		"provider_name":  "registry.terraform.io/hashicorp/null",
+		"type":           "null_resource",
+	},
+	"module.mod2.module.submod2.null_resource.test_submod2": {
+		"address": "module.mod2.module.submod2.null_resource.test_submod2",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {},
+			"after_unknown": {
+				"id":       true,
+				"triggers": true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "module.mod2.module.submod2",
+		"name":           "test_submod2",
+		"provider_name":  "registry.terraform.io/hashicorp/null",
+		"type":           "null_resource",
+	},
+	"module.mod3.null_resource.test_mod3": {
+		"address": "module.mod3.null_resource.test_mod3",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"triggers": null,
+			},
+			"after_unknown": {
+				"id": true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "module.mod3",
+		"name":           "test_mod3",
+		"provider_name":  "registry.terraform.io/hashicorp/null",
+		"type":           "null_resource",
+	},
+	"module.mod4.null_resource.test_mod4": {
+		"address": "module.mod4.null_resource.test_mod4",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"triggers": null,
+			},
+			"after_unknown": {
+				"id": true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "module.mod4",
+		"name":           "test_mod4",
+		"provider_name":  "registry.terraform.io/hashicorp/null",
+		"type":           "null_resource",
+	},
+}
+
+output_changes = {}
+
+raw = {
+	"configuration": {
+		"root_module": {
+			"module_calls": {
+				"mod1": {
+					"expressions": {
+						"input_value": {
+							"constant_value": "foo",
+						},
+					},
+					"module": {
+						"resources": [
+							{
+								"address":             "null_resource.test_mod1",
+								"mode":                "managed",
+								"name":                "test_mod1",
+								"provider_config_key": "mod1:null",
+								"schema_version":      0,
+								"type":                "null_resource",
+							},
+						],
+						"variables": {
+							"input_value": {},
+						},
+					},
+					"source": "./modules/mod1",
+				},
+				"mod2": {
+					"module": {
+						"module_calls": {
+							"submod1": {
+								"expressions": {
+									"input_value": {
+										"constant_value": "baz",
+									},
+								},
+								"module": {
+									"resources": [
+										{
+											"address": "null_resource.test_submod2",
+											"expressions": {
+												"triggers": {},
+											},
+											"mode":                "managed",
+											"name":                "test_submod2",
+											"provider_config_key": "submod1:null",
+											"schema_version":      0,
+											"type":                "null_resource",
+										},
+									],
+									"variables": {
+										"input_value": {},
+									},
+								},
+								"source": "./submodule1",
+							},
+							"submod2": {
+								"expressions": {
+									"input_value": {
+										"constant_value": "bop",
+									},
+								},
+								"module": {
+									"resources": [
+										{
+											"address": "null_resource.test_submod2",
+											"expressions": {
+												"triggers": {},
+											},
+											"mode":                "managed",
+											"name":                "test_submod2",
+											"provider_config_key": "submod2:null",
+											"schema_version":      0,
+											"type":                "null_resource",
+										},
+									],
+									"variables": {
+										"input_value": {},
+									},
+								},
+								"source": "./submodule1",
+							},
+						},
+					},
+					"source": "./modules/mod2",
+				},
+				"mod3": {
+					"module": {
+						"resources": [
+							{
+								"address":             "null_resource.test_mod3",
+								"mode":                "managed",
+								"name":                "test_mod3",
+								"provider_config_key": "mod3:null",
+								"schema_version":      0,
+								"type":                "null_resource",
+							},
+						],
+					},
+					"source": "./modules/mod3",
+				},
+				"mod4": {
+					"module": {
+						"resources": [
+							{
+								"address":             "null_resource.test_mod4",
+								"mode":                "managed",
+								"name":                "test_mod4",
+								"provider_config_key": "mod4:null",
+								"schema_version":      0,
+								"type":                "null_resource",
+							},
+						],
+					},
+					"source": "./modules/mod4",
+				},
+			},
+		},
+	},
+	"format_version": "0.1",
+	"planned_values": {
+		"root_module": {
+			"child_modules": [
+				{
+					"address": "module.mod1",
+					"resources": [
+						{
+							"address":        "module.mod1.null_resource.test_mod1",
+							"mode":           "managed",
+							"name":           "test_mod1",
+							"provider_name":  "registry.terraform.io/hashicorp/null",
+							"schema_version": 0,
+							"type":           "null_resource",
+							"values": {
+								"triggers": null,
+							},
+						},
+					],
+				},
+				{
+					"address": "module.mod2",
+					"child_modules": [
+						{
+							"address": "module.mod2.module.submod2",
+							"resources": [
+								{
+									"address":        "module.mod2.module.submod2.null_resource.test_submod2",
+									"mode":           "managed",
+									"name":           "test_submod2",
+									"provider_name":  "registry.terraform.io/hashicorp/null",
+									"schema_version": 0,
+									"type":           "null_resource",
+								},
+							],
+						},
+						{
+							"address": "module.mod2.module.submod1",
+							"resources": [
+								{
+									"address":        "module.mod2.module.submod1.null_resource.test_submod2",
+									"mode":           "managed",
+									"name":           "test_submod2",
+									"provider_name":  "registry.terraform.io/hashicorp/null",
+									"schema_version": 0,
+									"type":           "null_resource",
+								},
+							],
+						},
+					],
+				},
+				{
+					"address": "module.mod3",
+					"resources": [
+						{
+							"address":        "module.mod3.null_resource.test_mod3",
+							"mode":           "managed",
+							"name":           "test_mod3",
+							"provider_name":  "registry.terraform.io/hashicorp/null",
+							"schema_version": 0,
+							"type":           "null_resource",
+							"values": {
+								"triggers": null,
+							},
+						},
+					],
+				},
+				{
+					"address": "module.mod4",
+					"resources": [
+						{
+							"address":        "module.mod4.null_resource.test_mod4",
+							"mode":           "managed",
+							"name":           "test_mod4",
+							"provider_name":  "registry.terraform.io/hashicorp/null",
+							"schema_version": 0,
+							"type":           "null_resource",
+							"values": {
+								"triggers": null,
+							},
+						},
+					],
+				},
+			],
+		},
+	},
+	"resource_changes": [
+		{
+			"address": "module.mod1.null_resource.test_mod1",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"triggers": null,
+				},
+				"after_unknown": {
+					"id": true,
+				},
+				"before": null,
+			},
+			"mode":           "managed",
+			"module_address": "module.mod1",
+			"name":           "test_mod1",
+			"provider_name":  "registry.terraform.io/hashicorp/null",
+			"type":           "null_resource",
+		},
+		{
+			"address": "module.mod2.module.submod1.null_resource.test_submod2",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {},
+				"after_unknown": {
+					"id":       true,
+					"triggers": true,
+				},
+				"before": null,
+			},
+			"mode":           "managed",
+			"module_address": "module.mod2.module.submod1",
+			"name":           "test_submod2",
+			"provider_name":  "registry.terraform.io/hashicorp/null",
+			"type":           "null_resource",
+		},
+		{
+			"address": "module.mod2.module.submod2.null_resource.test_submod2",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {},
+				"after_unknown": {
+					"id":       true,
+					"triggers": true,
+				},
+				"before": null,
+			},
+			"mode":           "managed",
+			"module_address": "module.mod2.module.submod2",
+			"name":           "test_submod2",
+			"provider_name":  "registry.terraform.io/hashicorp/null",
+			"type":           "null_resource",
+		},
+		{
+			"address": "module.mod3.null_resource.test_mod3",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"triggers": null,
+				},
+				"after_unknown": {
+					"id": true,
+				},
+				"before": null,
+			},
+			"mode":           "managed",
+			"module_address": "module.mod3",
+			"name":           "test_mod3",
+			"provider_name":  "registry.terraform.io/hashicorp/null",
+			"type":           "null_resource",
+		},
+		{
+			"address": "module.mod4.null_resource.test_mod4",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"triggers": null,
+				},
+				"after_unknown": {
+					"id": true,
+				},
+				"before": null,
+			},
+			"mode":           "managed",
+			"module_address": "module.mod4",
+			"name":           "test_mod4",
+			"provider_name":  "registry.terraform.io/hashicorp/null",
+			"type":           "null_resource",
+		},
+	],
+	"terraform_version": "0.13.5",
+}

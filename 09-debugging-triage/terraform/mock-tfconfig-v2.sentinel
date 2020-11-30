@@ -1,0 +1,188 @@
+import "strings"
+
+providers = {}
+
+resources = {
+	"module.mod1.null_resource.test_mod1": {
+		"address":             "module.mod1.null_resource.test_mod1",
+		"config":              {},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "module.mod1",
+		"name":                "test_mod1",
+		"provider_config_key": "module.mod1:null",
+		"provisioners":        [],
+		"type":                "null_resource",
+	},
+	"module.mod2.module.submod1.null_resource.test_submod2": {
+		"address": "module.mod2.module.submod1.null_resource.test_submod2",
+		"config": {
+			"triggers": {
+				"constant_value": null,
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "module.mod2.module.submod1",
+		"name":                "test_submod2",
+		"provider_config_key": "module.mod2.module.submod1:null",
+		"provisioners":        [],
+		"type":                "null_resource",
+	},
+	"module.mod2.module.submod2.null_resource.test_submod2": {
+		"address": "module.mod2.module.submod2.null_resource.test_submod2",
+		"config": {
+			"triggers": {
+				"constant_value": null,
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "module.mod2.module.submod2",
+		"name":                "test_submod2",
+		"provider_config_key": "module.mod2.module.submod2:null",
+		"provisioners":        [],
+		"type":                "null_resource",
+	},
+	"module.mod3.null_resource.test_mod3": {
+		"address":             "module.mod3.null_resource.test_mod3",
+		"config":              {},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "module.mod3",
+		"name":                "test_mod3",
+		"provider_config_key": "module.mod3:null",
+		"provisioners":        [],
+		"type":                "null_resource",
+	},
+	"module.mod4.null_resource.test_mod4": {
+		"address":             "module.mod4.null_resource.test_mod4",
+		"config":              {},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "module.mod4",
+		"name":                "test_mod4",
+		"provider_config_key": "module.mod4:null",
+		"provisioners":        [],
+		"type":                "null_resource",
+	},
+}
+
+provisioners = {}
+
+variables = {
+	"module.mod1:input_value": {
+		"default":        null,
+		"description":    "",
+		"module_address": "module.mod1",
+		"name":           "input_value",
+	},
+	"module.mod2.module.submod1:input_value": {
+		"default":        null,
+		"description":    "",
+		"module_address": "module.mod2.module.submod1",
+		"name":           "input_value",
+	},
+	"module.mod2.module.submod2:input_value": {
+		"default":        null,
+		"description":    "",
+		"module_address": "module.mod2.module.submod2",
+		"name":           "input_value",
+	},
+}
+
+outputs = {}
+
+module_calls = {
+	"mod1": {
+		"config": {
+			"input_value": {
+				"constant_value": "foo",
+			},
+		},
+		"count":              {},
+		"depends_on":         [],
+		"for_each":           {},
+		"module_address":     "",
+		"name":               "mod1",
+		"source":             "./modules/mod1",
+		"version_constraint": "",
+	},
+	"mod2": {
+		"config":             {},
+		"count":              {},
+		"depends_on":         [],
+		"for_each":           {},
+		"module_address":     "",
+		"name":               "mod2",
+		"source":             "./modules/mod2",
+		"version_constraint": "",
+	},
+	"mod3": {
+		"config":             {},
+		"count":              {},
+		"depends_on":         [],
+		"for_each":           {},
+		"module_address":     "",
+		"name":               "mod3",
+		"source":             "./modules/mod3",
+		"version_constraint": "",
+	},
+	"mod4": {
+		"config":             {},
+		"count":              {},
+		"depends_on":         [],
+		"for_each":           {},
+		"module_address":     "",
+		"name":               "mod4",
+		"source":             "./modules/mod4",
+		"version_constraint": "",
+	},
+	"module.mod2:submod1": {
+		"config": {
+			"input_value": {
+				"constant_value": "baz",
+			},
+		},
+		"count":              {},
+		"depends_on":         [],
+		"for_each":           {},
+		"module_address":     "module.mod2",
+		"name":               "submod1",
+		"source":             "./submodule1",
+		"version_constraint": "",
+	},
+	"module.mod2:submod2": {
+		"config": {
+			"input_value": {
+				"constant_value": "bop",
+			},
+		},
+		"count":              {},
+		"depends_on":         [],
+		"for_each":           {},
+		"module_address":     "module.mod2",
+		"name":               "submod2",
+		"source":             "./submodule1",
+		"version_constraint": "",
+	},
+}
+
+strip_index = func(addr) {
+	s = strings.split(addr, ".")
+	for s as i, v {
+		s[i] = strings.split(v, "[")[0]
+	}
+
+	return strings.join(s, ".")
+}

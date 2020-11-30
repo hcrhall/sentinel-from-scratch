@@ -1,0 +1,9 @@
+/*
+Exercise 02 - Rules
+*/
+
+foo = rule { true }
+
+bar = rule when foo { true }
+
+main = rule { bar }
