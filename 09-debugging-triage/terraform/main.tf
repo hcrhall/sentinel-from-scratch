@@ -1,16 +1,32 @@
-module "mod1" {
-  source = "./modules/mod1"
-  input_value = "foo"
+terraform {
+  required_providers {
+    fakewebservices = "~> 0.1"
+  }
 }
 
-module "mod2" {
-  source = "./modules/mod2"
+provider "fakewebservices" {
+  token = var.fake_token
 }
 
-module "mod3" {
-  source = "./modules/mod3"
+resource "fakewebservices_vpc" "vpc" {
+  name = "Primary VPC"
+  cidr_block = "0.0.0.0/1"
 }
 
-module "mod4" {
-  source = "./modules/mod4"
+resource "fakewebservices_server" "server" {
+  count = 2
+
+  name = "Server ${count.index+1}"
+  type = "t2.micro"
+  vpc = fakewebservices_vpc.vpc.name
+}
+
+resource "fakewebservices_load_balancer" "load_balancer" {
+  name = "Primary Load Balancer"
+  servers = fakewebservices_server.server[*].name
+}
+
+resource "fakewebservices_database" "database" {
+  name = "Production DB"
+  size = 256
 }

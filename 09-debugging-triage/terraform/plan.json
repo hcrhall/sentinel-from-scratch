@@ -1,106 +1,99 @@
 {
     "format_version": "0.1",
-    "terraform_version": "0.13.5",
+    "terraform_version": "0.14.8",
+    "variables": {
+        "fake_token": {
+            "value": "750e8fee-85e5-11eb-8dcd-0242ac130003"
+        }
+    },
     "planned_values": {
         "root_module": {
-            "child_modules": [
+            "resources": [
                 {
-                    "resources": [
-                        {
-                            "address": "module.mod1.null_resource.test_mod1",
-                            "mode": "managed",
-                            "type": "null_resource",
-                            "name": "test_mod1",
-                            "provider_name": "registry.terraform.io/hashicorp/null",
-                            "schema_version": 0,
-                            "values": {
-                                "triggers": null
-                            }
-                        }
-                    ],
-                    "address": "module.mod1"
+                    "address": "fakewebservices_database.database",
+                    "mode": "managed",
+                    "type": "fakewebservices_database",
+                    "name": "database",
+                    "provider_name": "registry.terraform.io/hashicorp/fakewebservices",
+                    "schema_version": 0,
+                    "values": {
+                        "name": "Production DB",
+                        "size": 256
+                    }
                 },
                 {
-                    "address": "module.mod2",
-                    "child_modules": [
-                        {
-                            "resources": [
-                                {
-                                    "address": "module.mod2.module.submod2.null_resource.test_submod2",
-                                    "mode": "managed",
-                                    "type": "null_resource",
-                                    "name": "test_submod2",
-                                    "provider_name": "registry.terraform.io/hashicorp/null",
-                                    "schema_version": 0
-                                }
-                            ],
-                            "address": "module.mod2.module.submod2"
-                        },
-                        {
-                            "resources": [
-                                {
-                                    "address": "module.mod2.module.submod1.null_resource.test_submod2",
-                                    "mode": "managed",
-                                    "type": "null_resource",
-                                    "name": "test_submod2",
-                                    "provider_name": "registry.terraform.io/hashicorp/null",
-                                    "schema_version": 0
-                                }
-                            ],
-                            "address": "module.mod2.module.submod1"
-                        }
-                    ]
+                    "address": "fakewebservices_load_balancer.load_balancer",
+                    "mode": "managed",
+                    "type": "fakewebservices_load_balancer",
+                    "name": "load_balancer",
+                    "provider_name": "registry.terraform.io/hashicorp/fakewebservices",
+                    "schema_version": 0,
+                    "values": {
+                        "name": "Primary Load Balancer",
+                        "servers": [
+                            "Server 1",
+                            "Server 2"
+                        ]
+                    }
                 },
                 {
-                    "resources": [
-                        {
-                            "address": "module.mod3.null_resource.test_mod3",
-                            "mode": "managed",
-                            "type": "null_resource",
-                            "name": "test_mod3",
-                            "provider_name": "registry.terraform.io/hashicorp/null",
-                            "schema_version": 0,
-                            "values": {
-                                "triggers": null
-                            }
-                        }
-                    ],
-                    "address": "module.mod3"
+                    "address": "fakewebservices_server.server[0]",
+                    "mode": "managed",
+                    "type": "fakewebservices_server",
+                    "name": "server",
+                    "index": 0,
+                    "provider_name": "registry.terraform.io/hashicorp/fakewebservices",
+                    "schema_version": 0,
+                    "values": {
+                        "name": "Server 1",
+                        "type": "t2.micro",
+                        "vpc": "Primary VPC"
+                    }
                 },
                 {
-                    "resources": [
-                        {
-                            "address": "module.mod4.null_resource.test_mod4",
-                            "mode": "managed",
-                            "type": "null_resource",
-                            "name": "test_mod4",
-                            "provider_name": "registry.terraform.io/hashicorp/null",
-                            "schema_version": 0,
-                            "values": {
-                                "triggers": null
-                            }
-                        }
-                    ],
-                    "address": "module.mod4"
+                    "address": "fakewebservices_server.server[1]",
+                    "mode": "managed",
+                    "type": "fakewebservices_server",
+                    "name": "server",
+                    "index": 1,
+                    "provider_name": "registry.terraform.io/hashicorp/fakewebservices",
+                    "schema_version": 0,
+                    "values": {
+                        "name": "Server 2",
+                        "type": "t2.micro",
+                        "vpc": "Primary VPC"
+                    }
+                },
+                {
+                    "address": "fakewebservices_vpc.vpc",
+                    "mode": "managed",
+                    "type": "fakewebservices_vpc",
+                    "name": "vpc",
+                    "provider_name": "registry.terraform.io/hashicorp/fakewebservices",
+                    "schema_version": 0,
+                    "values": {
+                        "cidr_block": "0.0.0.0/1",
+                        "name": "Primary VPC"
+                    }
                 }
             ]
         }
     },
     "resource_changes": [
         {
-            "address": "module.mod1.null_resource.test_mod1",
-            "module_address": "module.mod1",
+            "address": "fakewebservices_database.database",
             "mode": "managed",
-            "type": "null_resource",
-            "name": "test_mod1",
-            "provider_name": "registry.terraform.io/hashicorp/null",
+            "type": "fakewebservices_database",
+            "name": "database",
+            "provider_name": "registry.terraform.io/hashicorp/fakewebservices",
             "change": {
                 "actions": [
                     "create"
                 ],
                 "before": null,
                 "after": {
-                    "triggers": null
+                    "name": "Production DB",
+                    "size": 256
                 },
                 "after_unknown": {
                     "id": true
@@ -108,57 +101,48 @@
             }
         },
         {
-            "address": "module.mod2.module.submod1.null_resource.test_submod2",
-            "module_address": "module.mod2.module.submod1",
+            "address": "fakewebservices_load_balancer.load_balancer",
             "mode": "managed",
-            "type": "null_resource",
-            "name": "test_submod2",
-            "provider_name": "registry.terraform.io/hashicorp/null",
-            "change": {
-                "actions": [
-                    "create"
-                ],
-                "before": null,
-                "after": {},
-                "after_unknown": {
-                    "id": true,
-                    "triggers": true
-                }
-            }
-        },
-        {
-            "address": "module.mod2.module.submod2.null_resource.test_submod2",
-            "module_address": "module.mod2.module.submod2",
-            "mode": "managed",
-            "type": "null_resource",
-            "name": "test_submod2",
-            "provider_name": "registry.terraform.io/hashicorp/null",
-            "change": {
-                "actions": [
-                    "create"
-                ],
-                "before": null,
-                "after": {},
-                "after_unknown": {
-                    "id": true,
-                    "triggers": true
-                }
-            }
-        },
-        {
-            "address": "module.mod3.null_resource.test_mod3",
-            "module_address": "module.mod3",
-            "mode": "managed",
-            "type": "null_resource",
-            "name": "test_mod3",
-            "provider_name": "registry.terraform.io/hashicorp/null",
+            "type": "fakewebservices_load_balancer",
+            "name": "load_balancer",
+            "provider_name": "registry.terraform.io/hashicorp/fakewebservices",
             "change": {
                 "actions": [
                     "create"
                 ],
                 "before": null,
                 "after": {
-                    "triggers": null
+                    "name": "Primary Load Balancer",
+                    "servers": [
+                        "Server 1",
+                        "Server 2"
+                    ]
+                },
+                "after_unknown": {
+                    "id": true,
+                    "servers": [
+                        false,
+                        false
+                    ]
+                }
+            }
+        },
+        {
+            "address": "fakewebservices_server.server[0]",
+            "mode": "managed",
+            "type": "fakewebservices_server",
+            "name": "server",
+            "index": 0,
+            "provider_name": "registry.terraform.io/hashicorp/fakewebservices",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "name": "Server 1",
+                    "type": "t2.micro",
+                    "vpc": "Primary VPC"
                 },
                 "after_unknown": {
                     "id": true
@@ -166,19 +150,41 @@
             }
         },
         {
-            "address": "module.mod4.null_resource.test_mod4",
-            "module_address": "module.mod4",
+            "address": "fakewebservices_server.server[1]",
             "mode": "managed",
-            "type": "null_resource",
-            "name": "test_mod4",
-            "provider_name": "registry.terraform.io/hashicorp/null",
+            "type": "fakewebservices_server",
+            "name": "server",
+            "index": 1,
+            "provider_name": "registry.terraform.io/hashicorp/fakewebservices",
             "change": {
                 "actions": [
                     "create"
                 ],
                 "before": null,
                 "after": {
-                    "triggers": null
+                    "name": "Server 2",
+                    "type": "t2.micro",
+                    "vpc": "Primary VPC"
+                },
+                "after_unknown": {
+                    "id": true
+                }
+            }
+        },
+        {
+            "address": "fakewebservices_vpc.vpc",
+            "mode": "managed",
+            "type": "fakewebservices_vpc",
+            "name": "vpc",
+            "provider_name": "registry.terraform.io/hashicorp/fakewebservices",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "cidr_block": "0.0.0.0/1",
+                    "name": "Primary VPC"
                 },
                 "after_unknown": {
                     "id": true
@@ -187,119 +193,102 @@
         }
     ],
     "configuration": {
+        "provider_config": {
+            "fakewebservices": {
+                "name": "fakewebservices",
+                "version_constraint": "~\u003e 0.1",
+                "expressions": {
+                    "token": {
+                        "references": [
+                            "var.fake_token"
+                        ]
+                    }
+                }
+            }
+        },
         "root_module": {
-            "module_calls": {
-                "mod1": {
-                    "source": "./modules/mod1",
+            "resources": [
+                {
+                    "address": "fakewebservices_database.database",
+                    "mode": "managed",
+                    "type": "fakewebservices_database",
+                    "name": "database",
+                    "provider_config_key": "fakewebservices",
                     "expressions": {
-                        "input_value": {
-                            "constant_value": "foo"
+                        "name": {
+                            "constant_value": "Production DB"
+                        },
+                        "size": {
+                            "constant_value": 256
                         }
                     },
-                    "module": {
-                        "resources": [
-                            {
-                                "address": "null_resource.test_mod1",
-                                "mode": "managed",
-                                "type": "null_resource",
-                                "name": "test_mod1",
-                                "provider_config_key": "mod1:null",
-                                "schema_version": 0
-                            }
-                        ],
-                        "variables": {
-                            "input_value": {}
+                    "schema_version": 0
+                },
+                {
+                    "address": "fakewebservices_load_balancer.load_balancer",
+                    "mode": "managed",
+                    "type": "fakewebservices_load_balancer",
+                    "name": "load_balancer",
+                    "provider_config_key": "fakewebservices",
+                    "expressions": {
+                        "name": {
+                            "constant_value": "Primary Load Balancer"
+                        },
+                        "servers": {
+                            "references": [
+                                "fakewebservices_server.server"
+                            ]
                         }
-                    }
+                    },
+                    "schema_version": 0
                 },
-                "mod2": {
-                    "source": "./modules/mod2",
-                    "module": {
-                        "module_calls": {
-                            "submod1": {
-                                "source": "./submodule1",
-                                "expressions": {
-                                    "input_value": {
-                                        "constant_value": "baz"
-                                    }
-                                },
-                                "module": {
-                                    "resources": [
-                                        {
-                                            "address": "null_resource.test_submod2",
-                                            "mode": "managed",
-                                            "type": "null_resource",
-                                            "name": "test_submod2",
-                                            "provider_config_key": "submod1:null",
-                                            "expressions": {
-                                                "triggers": {}
-                                            },
-                                            "schema_version": 0
-                                        }
-                                    ],
-                                    "variables": {
-                                        "input_value": {}
-                                    }
-                                }
-                            },
-                            "submod2": {
-                                "source": "./submodule1",
-                                "expressions": {
-                                    "input_value": {
-                                        "constant_value": "bop"
-                                    }
-                                },
-                                "module": {
-                                    "resources": [
-                                        {
-                                            "address": "null_resource.test_submod2",
-                                            "mode": "managed",
-                                            "type": "null_resource",
-                                            "name": "test_submod2",
-                                            "provider_config_key": "submod2:null",
-                                            "expressions": {
-                                                "triggers": {}
-                                            },
-                                            "schema_version": 0
-                                        }
-                                    ],
-                                    "variables": {
-                                        "input_value": {}
-                                    }
-                                }
-                            }
+                {
+                    "address": "fakewebservices_server.server",
+                    "mode": "managed",
+                    "type": "fakewebservices_server",
+                    "name": "server",
+                    "provider_config_key": "fakewebservices",
+                    "expressions": {
+                        "name": {
+                            "references": [
+                                "count.index"
+                            ]
+                        },
+                        "type": {
+                            "constant_value": "t2.micro"
+                        },
+                        "vpc": {
+                            "references": [
+                                "fakewebservices_vpc.vpc"
+                            ]
                         }
+                    },
+                    "schema_version": 0,
+                    "count_expression": {
+                        "constant_value": 2
                     }
                 },
-                "mod3": {
-                    "source": "./modules/mod3",
-                    "module": {
-                        "resources": [
-                            {
-                                "address": "null_resource.test_mod3",
-                                "mode": "managed",
-                                "type": "null_resource",
-                                "name": "test_mod3",
-                                "provider_config_key": "mod3:null",
-                                "schema_version": 0
-                            }
-                        ]
-                    }
-                },
-                "mod4": {
-                    "source": "./modules/mod4",
-                    "module": {
-                        "resources": [
-                            {
-                                "address": "null_resource.test_mod4",
-                                "mode": "managed",
-                                "type": "null_resource",
-                                "name": "test_mod4",
-                                "provider_config_key": "mod4:null",
-                                "schema_version": 0
-                            }
-                        ]
-                    }
+                {
+                    "address": "fakewebservices_vpc.vpc",
+                    "mode": "managed",
+                    "type": "fakewebservices_vpc",
+                    "name": "vpc",
+                    "provider_config_key": "fakewebservices",
+                    "expressions": {
+                        "cidr_block": {
+                            "constant_value": "0.0.0.0/1"
+                        },
+                        "name": {
+                            "constant_value": "Primary VPC"
+                        }
+                    },
+                    "schema_version": 0
+                }
+            ],
+            "variables": {
+                "fake_token": {
+                    "default": "750e8fee-85e5-11eb-8dcd-0242ac130003",
+                    "description": "The Terraform Cloud/Enterprise user/team token that will be used in the provider configuration block."
                 }
             }
         }
