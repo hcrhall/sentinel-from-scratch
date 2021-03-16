@@ -1,0 +1,296 @@
+{
+    "format_version": "0.1",
+    "terraform_version": "0.14.8",
+    "variables": {
+        "fake_token": {
+            "value": "750e8fee-85e5-11eb-8dcd-0242ac130003"
+        }
+    },
+    "planned_values": {
+        "root_module": {
+            "resources": [
+                {
+                    "address": "fakewebservices_database.database",
+                    "mode": "managed",
+                    "type": "fakewebservices_database",
+                    "name": "database",
+                    "provider_name": "registry.terraform.io/hashicorp/fakewebservices",
+                    "schema_version": 0,
+                    "values": {
+                        "name": "Production DB",
+                        "size": 256
+                    }
+                },
+                {
+                    "address": "fakewebservices_load_balancer.load_balancer",
+                    "mode": "managed",
+                    "type": "fakewebservices_load_balancer",
+                    "name": "load_balancer",
+                    "provider_name": "registry.terraform.io/hashicorp/fakewebservices",
+                    "schema_version": 0,
+                    "values": {
+                        "name": "Primary Load Balancer",
+                        "servers": [
+                            "Server 1",
+                            "Server 2"
+                        ]
+                    }
+                },
+                {
+                    "address": "fakewebservices_server.server[0]",
+                    "mode": "managed",
+                    "type": "fakewebservices_server",
+                    "name": "server",
+                    "index": 0,
+                    "provider_name": "registry.terraform.io/hashicorp/fakewebservices",
+                    "schema_version": 0,
+                    "values": {
+                        "name": "Server 1",
+                        "type": "t2.micro",
+                        "vpc": "Primary VPC"
+                    }
+                },
+                {
+                    "address": "fakewebservices_server.server[1]",
+                    "mode": "managed",
+                    "type": "fakewebservices_server",
+                    "name": "server",
+                    "index": 1,
+                    "provider_name": "registry.terraform.io/hashicorp/fakewebservices",
+                    "schema_version": 0,
+                    "values": {
+                        "name": "Server 2",
+                        "type": "t2.micro",
+                        "vpc": "Primary VPC"
+                    }
+                },
+                {
+                    "address": "fakewebservices_vpc.vpc",
+                    "mode": "managed",
+                    "type": "fakewebservices_vpc",
+                    "name": "vpc",
+                    "provider_name": "registry.terraform.io/hashicorp/fakewebservices",
+                    "schema_version": 0,
+                    "values": {
+                        "cidr_block": "0.0.0.0/1",
+                        "name": "Primary VPC"
+                    }
+                }
+            ]
+        }
+    },
+    "resource_changes": [
+        {
+            "address": "fakewebservices_database.database",
+            "mode": "managed",
+            "type": "fakewebservices_database",
+            "name": "database",
+            "provider_name": "registry.terraform.io/hashicorp/fakewebservices",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "name": "Production DB",
+                    "size": 256
+                },
+                "after_unknown": {
+                    "id": true
+                }
+            }
+        },
+        {
+            "address": "fakewebservices_load_balancer.load_balancer",
+            "mode": "managed",
+            "type": "fakewebservices_load_balancer",
+            "name": "load_balancer",
+            "provider_name": "registry.terraform.io/hashicorp/fakewebservices",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "name": "Primary Load Balancer",
+                    "servers": [
+                        "Server 1",
+                        "Server 2"
+                    ]
+                },
+                "after_unknown": {
+                    "id": true,
+                    "servers": [
+                        false,
+                        false
+                    ]
+                }
+            }
+        },
+        {
+            "address": "fakewebservices_server.server[0]",
+            "mode": "managed",
+            "type": "fakewebservices_server",
+            "name": "server",
+            "index": 0,
+            "provider_name": "registry.terraform.io/hashicorp/fakewebservices",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "name": "Server 1",
+                    "type": "t2.micro",
+                    "vpc": "Primary VPC"
+                },
+                "after_unknown": {
+                    "id": true
+                }
+            }
+        },
+        {
+            "address": "fakewebservices_server.server[1]",
+            "mode": "managed",
+            "type": "fakewebservices_server",
+            "name": "server",
+            "index": 1,
+            "provider_name": "registry.terraform.io/hashicorp/fakewebservices",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "name": "Server 2",
+                    "type": "t2.micro",
+                    "vpc": "Primary VPC"
+                },
+                "after_unknown": {
+                    "id": true
+                }
+            }
+        },
+        {
+            "address": "fakewebservices_vpc.vpc",
+            "mode": "managed",
+            "type": "fakewebservices_vpc",
+            "name": "vpc",
+            "provider_name": "registry.terraform.io/hashicorp/fakewebservices",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "cidr_block": "0.0.0.0/1",
+                    "name": "Primary VPC"
+                },
+                "after_unknown": {
+                    "id": true
+                }
+            }
+        }
+    ],
+    "configuration": {
+        "provider_config": {
+            "fakewebservices": {
+                "name": "fakewebservices",
+                "version_constraint": "0.2.1",
+                "expressions": {
+                    "token": {
+                        "references": [
+                            "var.fake_token"
+                        ]
+                    }
+                }
+            }
+        },
+        "root_module": {
+            "resources": [
+                {
+                    "address": "fakewebservices_database.database",
+                    "mode": "managed",
+                    "type": "fakewebservices_database",
+                    "name": "database",
+                    "provider_config_key": "fakewebservices",
+                    "expressions": {
+                        "name": {
+                            "constant_value": "Production DB"
+                        },
+                        "size": {
+                            "constant_value": 256
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "fakewebservices_load_balancer.load_balancer",
+                    "mode": "managed",
+                    "type": "fakewebservices_load_balancer",
+                    "name": "load_balancer",
+                    "provider_config_key": "fakewebservices",
+                    "expressions": {
+                        "name": {
+                            "constant_value": "Primary Load Balancer"
+                        },
+                        "servers": {
+                            "references": [
+                                "fakewebservices_server.server"
+                            ]
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "fakewebservices_server.server",
+                    "mode": "managed",
+                    "type": "fakewebservices_server",
+                    "name": "server",
+                    "provider_config_key": "fakewebservices",
+                    "expressions": {
+                        "name": {
+                            "references": [
+                                "count.index"
+                            ]
+                        },
+                        "type": {
+                            "constant_value": "t2.micro"
+                        },
+                        "vpc": {
+                            "references": [
+                                "fakewebservices_vpc.vpc"
+                            ]
+                        }
+                    },
+                    "schema_version": 0,
+                    "count_expression": {
+                        "constant_value": 2
+                    }
+                },
+                {
+                    "address": "fakewebservices_vpc.vpc",
+                    "mode": "managed",
+                    "type": "fakewebservices_vpc",
+                    "name": "vpc",
+                    "provider_config_key": "fakewebservices",
+                    "expressions": {
+                        "cidr_block": {
+                            "constant_value": "0.0.0.0/1"
+                        },
+                        "name": {
+                            "constant_value": "Primary VPC"
+                        }
+                    },
+                    "schema_version": 0
+                }
+            ],
+            "variables": {
+                "fake_token": {
+                    "default": "750e8fee-85e5-11eb-8dcd-0242ac130003",
+                    "description": "The Terraform Cloud/Enterprise user/team token that will be used in the provider configuration block."
+                }
+            }
+        }
+    }
+}

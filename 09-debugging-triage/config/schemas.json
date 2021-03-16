@@ -1,0 +1,140 @@
+{
+    "format_version": "0.1",
+    "provider_schemas": {
+        "registry.terraform.io/hashicorp/fakewebservices": {
+            "provider": {
+                "version": 0,
+                "block": {
+                    "attributes": {
+                        "hostname": {
+                            "type": "string",
+                            "description_kind": "plain",
+                            "optional": true
+                        },
+                        "token": {
+                            "type": "string",
+                            "description_kind": "plain",
+                            "optional": true
+                        }
+                    },
+                    "description_kind": "plain"
+                }
+            },
+            "resource_schemas": {
+                "fakewebservices_database": {
+                    "version": 0,
+                    "block": {
+                        "attributes": {
+                            "id": {
+                                "type": "string",
+                                "description_kind": "plain",
+                                "optional": true,
+                                "computed": true
+                            },
+                            "name": {
+                                "type": "string",
+                                "description": "The name of the database.",
+                                "description_kind": "plain",
+                                "required": true
+                            },
+                            "size": {
+                                "type": "number",
+                                "description": "The allocated size of the database in gigabytes.",
+                                "description_kind": "plain",
+                                "required": true
+                            }
+                        },
+                        "description_kind": "plain"
+                    }
+                },
+                "fakewebservices_load_balancer": {
+                    "version": 0,
+                    "block": {
+                        "attributes": {
+                            "id": {
+                                "type": "string",
+                                "description_kind": "plain",
+                                "optional": true,
+                                "computed": true
+                            },
+                            "name": {
+                                "type": "string",
+                                "description": "The name of the load balancer.",
+                                "description_kind": "plain",
+                                "required": true
+                            },
+                            "servers": {
+                                "type": [
+                                    "set",
+                                    "string"
+                                ],
+                                "description": "A list of server names to attach to the load balancer.",
+                                "description_kind": "plain",
+                                "optional": true
+                            }
+                        },
+                        "description_kind": "plain"
+                    }
+                },
+                "fakewebservices_server": {
+                    "version": 0,
+                    "block": {
+                        "attributes": {
+                            "id": {
+                                "type": "string",
+                                "description_kind": "plain",
+                                "optional": true,
+                                "computed": true
+                            },
+                            "name": {
+                                "type": "string",
+                                "description": "The name of the server.",
+                                "description_kind": "plain",
+                                "required": true
+                            },
+                            "type": {
+                                "type": "string",
+                                "description": "The server type.",
+                                "description_kind": "plain",
+                                "required": true
+                            },
+                            "vpc": {
+                                "type": "string",
+                                "description": "The name of the VPC to deploy this server in.",
+                                "description_kind": "plain",
+                                "optional": true
+                            }
+                        },
+                        "description_kind": "plain"
+                    }
+                },
+                "fakewebservices_vpc": {
+                    "version": 0,
+                    "block": {
+                        "attributes": {
+                            "cidr_block": {
+                                "type": "string",
+                                "description": "The range of IPv4 addresses for this VPC, in the form of a Classless Inter-Domain Routing (CIDR) block.",
+                                "description_kind": "plain",
+                                "required": true
+                            },
+                            "id": {
+                                "type": "string",
+                                "description_kind": "plain",
+                                "optional": true,
+                                "computed": true
+                            },
+                            "name": {
+                                "type": "string",
+                                "description": "The name of the VPC.",
+                                "description_kind": "plain",
+                                "required": true
+                            }
+                        },
+                        "description_kind": "plain"
+                    }
+                }
+            }
+        }
+    }
+}

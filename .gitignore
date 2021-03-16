@@ -2,3 +2,6 @@
 .DS_Store
 .terraform
 tfplan.plan
+.terraform.lock.hcl
+terraform.tfstate
+10-testing
