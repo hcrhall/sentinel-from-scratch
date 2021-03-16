@@ -1,9 +1,3 @@
-terraform {
-  required_providers {
-    fakewebservices = "~> 0.1"
-  }
-}
-
 provider "fakewebservices" {
   token = var.fake_token
 }

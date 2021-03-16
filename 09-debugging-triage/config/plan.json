@@ -196,7 +196,7 @@
         "provider_config": {
             "fakewebservices": {
                 "name": "fakewebservices",
-                "version_constraint": "~\u003e 0.1",
+                "version_constraint": "0.2.1",
                 "expressions": {
                     "token": {
                         "references": [

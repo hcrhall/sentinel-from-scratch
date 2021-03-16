@@ -1,0 +1,28 @@
+/*
+Exercise 09 - Debugging
+*/
+
+import "tfplan/v2" as tfplan
+
+// Allowed Server Instance Types
+allowedServerTypes = ["t2.small", "t2.medium", "t2.large"]
+
+// Filter all instances that will be created that has a type value that is not listed in allowedServerTypes
+allServerInstanceTypeViolations = filter tfplan.resource_changes as _, rc {
+	rc.change.actions is ["create"] and
+		rc.type is "fakewebservices_server" and
+		rc.change.after.type not in allowedServerTypes
+}
+
+// This Sentinel policy ensures that server instance type configuration does not violate a list of allowed types.
+main = rule {
+	// Sentinel map expression providing contextual violation data
+	map allServerInstanceTypeViolations as _, violation {
+		{
+			"message":          violation.change.after.name + " has an unsupported instance type",
+			"address":          violation.address,
+			"type":             violation.change.after.type,
+			"allowed_types":    allowedServerTypes,
+		}
+	}
+}
