@@ -1,7 +1,13 @@
+#
+ # Provider
+#
 provider "fakewebservices" {
   token = var.fake_token
 }
 
+#
+ # Resources
+#
 resource "fakewebservices_vpc" "vpc" {
   name = "Primary VPC"
   cidr_block = "0.0.0.0/1"
