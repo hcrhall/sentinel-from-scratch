@@ -1,4 +1,4 @@
 policy "policy" {
   source = "./policy.sentinel"
-  enforcement_level = "advisory"
+  enforcement_level = "soft-mandatory"
 }
