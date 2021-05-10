@@ -3,3 +3,5 @@ policy "policy" {
   source = "./policy.sentinel"
   enforcement_level = "soft-mandatory"
 }
+
+# This is another comment
