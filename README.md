@@ -1,3 +1,4 @@
+# Trigger Fail
 # Sentinel from Scratch
 
 In this training session we will cover the Sentinel language specification by building an example policy from scratch.
