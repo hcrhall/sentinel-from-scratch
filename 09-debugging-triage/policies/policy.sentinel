@@ -3,9 +3,6 @@ Exercise 09 - Debugging
 */
 
 import "tfplan/v2" as tfplan
-import "tfrun"
-
-print(tfrun.workspace)
 
 // Allowed Server Instance Types
 allowedServerTypes = ["t2.small", "t2.medium", "t2.large"]
