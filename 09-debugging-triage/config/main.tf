@@ -14,7 +14,7 @@ resource "fakewebservices_vpc" "vpc" {
 }
 
 resource "fakewebservices_server" "server" {
-  count = 3
+  count = var.server_count
 
   name = "Server ${count.index+1}"
   type = "t2.micro"
