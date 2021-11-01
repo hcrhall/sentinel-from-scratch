@@ -1,7 +1,4 @@
-# This is a comment
 policy "policy" {
-  source = "./policy.sentinel"
+  source = "https://github.com/hcrhall/sentinel-from-scratch/raw/master/09-debugging-triage/policies/policy.sentinel"
   enforcement_level = "soft-mandatory"
 }
-
-# This is another comment
