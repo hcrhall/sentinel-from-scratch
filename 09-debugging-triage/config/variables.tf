@@ -1,3 +1,8 @@
+variable "fws_hostname" {
+    type = string
+    description = "The Terraform Cloud/Enterprise hostname that will be used in the provider configuration block."
+}
+
 variable "fake_token" {
     type = string
     sensitive = true
