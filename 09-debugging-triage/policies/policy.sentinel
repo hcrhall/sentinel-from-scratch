@@ -3,26 +3,60 @@ Exercise 09 - Debugging
 */
 
 import "tfplan/v2" as tfplan
+import "eval"
 
-// Allowed Server Instance Types
-allowedServerTypes = ["t2.small", "t2.medium", "t2.large"]
+param valid_actions default [
+	["no-op"],
+	["create"],
+	["read"],
+	["update"],
+	["delete", "create"],
+	["create", "delete"],
+	["delete"],
+]
 
-// Filter all instances that will be created that has a type value that is not listed in allowedServerTypes
-allServerInstanceTypeViolations = filter tfplan.resource_changes as _, rc {
-	rc.change.actions is ["create"] and
-		rc.type is "fakewebservices_server" and
-		rc.change.after.type not in allowedServerTypes
+// Allowed server resource types
+allowed_server_types = [
+	"t2.small", 
+	"t2.medium",
+	"t2.large",
+]
+
+doc = {
+	"id":        "FWS-CIS-0.1",
+	"resource":  "fakewebservices_server",
+	"name":      "Ensure that only approved extensions are installed",
+	"reference": "https://git.io/JK2Nv",
+}
+
+// Filter resources by type
+all_resources = filter tfplan.resource_changes as _, rc {
+		rc.type is doc.resource and
+			rc.mode is "managed" and
+			rc.change.actions in valid_actions
+}
+
+// Filter resources that violate a given condition
+violations = filter all_resources as _, r {
+		r.change.after.type in allowed_server_types
+}
+
+// Build a summary report
+summary = {
+	"id":        doc.id,
+	"name":      doc.name,
+	"reference": doc.reference,
+	"violations": map violations as _, violation {
+		{
+			"name":    violation.name,
+			"address": violation.address,
+			"type":    violation.type,
+			"message": violation.change.after.type + " is NOT listed in " + allowed_server_types,
+		}
+	},
 }
 
 // This Sentinel policy ensures that server instance type configuration does not violate a list of allowed types.
 main = rule {
-	// Sentinel map expression providing contextual violation data
-	map allServerInstanceTypeViolations as _, violation {
-		{
-			"message":          violation.change.after.name + " has an unsupported instance type",
-			"address":          violation.address,
-			"type":             violation.change.after.type,
-			"allowed_types":    allowedServerTypes,
-		}
-	}
+	eval.summary(summary, "warn")
 }
