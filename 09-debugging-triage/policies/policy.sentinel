@@ -21,7 +21,7 @@ allowed_server_types = [
 doc = {
 	"id":        "FWS-CIS-0.1",
 	"resource":  "fakewebservices_server",
-	"name":      "Ensure that only allowed server type values are in use",
+	"name":      "Ensure that allowed server type values are defined",
 	"reference": "https://github.com/hcrhall/sentinel-from-scratch/",
 }
 
