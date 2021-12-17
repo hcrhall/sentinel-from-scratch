@@ -38,7 +38,7 @@ all_resources = filter tfplan.resource_changes as _, rc {
 
 // Filter resources that violate a given condition
 violations = filter all_resources as _, r {
-		r.change.after.type in allowed_server_types
+		r.change.after.type not in allowed_server_types
 }
 
 // Build a summary report
