@@ -8,11 +8,7 @@ import "eval"
 param valid_actions default [
 	["no-op"],
 	["create"],
-	["read"],
 	["update"],
-	["delete", "create"],
-	["create", "delete"],
-	["delete"],
 ]
 
 // Allowed server resource types
@@ -25,8 +21,8 @@ allowed_server_types = [
 doc = {
 	"id":        "FWS-CIS-0.1",
 	"resource":  "fakewebservices_server",
-	"name":      "Ensure that only approved extensions are installed",
-	"reference": "https://git.io/JK2Nv",
+	"name":      "Ensure that only allowed server type values are in use",
+	"reference": "https://github.com/hcrhall/sentinel-from-scratch/",
 }
 
 // Filter resources by type
@@ -51,7 +47,7 @@ summary = {
 			"name":    violation.name,
 			"address": violation.address,
 			"type":    violation.type,
-			"message": violation.change.after.type + " is NOT listed in " + allowed_server_types,
+			"message": violation.change.after.type + " is not an allowed server type.",
 		}
 	},
 }
