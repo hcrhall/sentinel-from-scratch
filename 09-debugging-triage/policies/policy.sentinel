@@ -44,7 +44,7 @@ summary = {
 	"reference": doc.reference,
 	"violations": map violations as _, violation {
 		{
-			"name":    violation.name,
+			"name":    violation.change.after.name,
 			"address": violation.address,
 			"type":    violation.type,
 			"message": violation.change.after.type + " is not an allowed server type.",
