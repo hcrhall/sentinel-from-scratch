@@ -4,5 +4,5 @@ policy "policy" {
 }
 
 module "eval" {
-    source = "https://github.com/hcrhall/terraform-foundational-policies-library/raw/master/modules/eval/eval.sentinel"
+    source = "https://github.com/hcrhall/sentinel-from-scratch/raw/master/09-debugging-triage/modules/eval.sentinel"
 }

@@ -1,0 +1,60 @@
+format = {
+	"reset":    "\033[0m",
+	"info":     "\033[32m",
+	"warn":  "\033[33m",
+	"error":    "\033[31m",
+}
+
+summary = func(input, level) {
+	result = false
+	if input.violations is empty {
+		return true
+	} else {
+		log(input, format[level])
+	}
+	return result
+}
+
+log = func(input, output) {
+	header(input, output)
+	violations(input, output)
+	return null
+}
+
+header = func(input, output) {
+	print(
+		output + "\t========================================================================\n",
+		output + "\tPOLICY CHECK SUMMARY \n" + format.reset,
+		output + "\t========================================================================\n\t",
+		output + "ID            :" + output + "   " + input.id + "\n\t",
+		output + "Name          :" + output + "   " + input.name + "\n\t",
+		output + "Reference     :" + output + "   " + input.reference,
+	)
+	return null
+}
+
+violations = func(input, output) {
+	print(
+		output + "\t========================================================================\n",
+		output + "\tRESOURCE VIOLATIONS\n" + format.reset,
+		output + "\t========================================================================\t",
+	)
+	for input.violations as violation {
+		print(
+			"\t",
+			output + "name          :" + output + "   " + violation.name + "\n\t",
+			output + "type          :" + output + "   " + violation.type + "\n\t",
+			output + "address       :" + output + "   " + violation.address + "\n\t",
+			output + "message       :" + output + "   " + violation.message + "\t\n",
+			output + "\t------------------------------------------------------------------------\t",
+		)
+	}
+	if(input.violations is not empty){
+		print(
+			output + "\t",
+			output + "Total: " + string(length(input.violations)) + "\n" + format.reset,
+			output + "\t------------------------------------------------------------------------\t",
+		)
+	}
+	return null
+}
