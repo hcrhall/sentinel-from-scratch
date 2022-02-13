@@ -10,5 +10,6 @@ variable "fake_token" {
 }
 
 variable "server_count" {
+    type = number
     description = "The number of fakewebservices_server resources that will get provisioned."
 }
